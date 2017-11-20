@@ -30,7 +30,7 @@
     if (typeof window === 'undefined') {
         module.exports = ClipboardUtils;
     } else {
-        window.SeqExec = ClipboardUtils;
+        window.ClipboardUtils = ClipboardUtils;
     }
 
 }());
