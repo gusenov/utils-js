@@ -1,6 +1,6 @@
 {
   "name": "utils4js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Various utility functions for JavaScript.",
   "main": "utils.js",
   "scripts": {
