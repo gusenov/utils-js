@@ -11,6 +11,15 @@
     var ChromiumUtils = (function () {
         function ChromiumUtils() { }
         
+        ChromiumUtils.sendMessageToExtension = function (payload, responseCallback) {
+
+            /**
+             * @see {@link https://developer.chrome.com/extensions/messaging#simple|Sending a request from a content script}
+             */
+            chrome.runtime.sendMessage(payload, responseCallback);
+
+        };
+        
         ChromiumUtils.sendMessageToActiveTabInCurrentWindow = function (payload, responseCallback) {
 
             /**
