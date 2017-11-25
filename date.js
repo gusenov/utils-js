@@ -10,6 +10,9 @@
     var DateUtils = (function () {
         function DateUtils() { }
         
+        /**
+         * @see {@link https://stackoverflow.com/questions/2013255/how-to-get-year-month-day-from-a-date-object|Stack Overflow}
+         */
         DateUtils.formatDateToYYYYMMDD = function (date, separator) {
             separator = typeof separator !== 'undefined' ? separator : '/';
             return date.getFullYear()
