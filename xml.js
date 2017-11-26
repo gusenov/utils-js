@@ -31,6 +31,10 @@
             xhr.send();
         };
         
+        XMLUtils.isTagExists = function (xml, tagName) {
+            return xml.getElementsByTagName(tagName).length > 0;
+        };
+        
         return XMLUtils;
     }());
 

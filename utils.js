@@ -13,10 +13,12 @@ if (typeof window === 'undefined') {
     Utils.XML = require('./xml');
     Utils.JSON = require('./json');
     Utils.Array = require('./array');
+    Utils.Image = require('./image');
 } else {
     Utils.Clipboard = window.ClipboardUtils;
     Utils.Chromium = window.ChromiumUtils;
     Utils.XML = window.XMLUtils;
     Utils.JSON = window.JSONUtils;
     Utils.Array = window.ArrayUtils;
+    Utils.Image = window.ImageUtils;
 }
