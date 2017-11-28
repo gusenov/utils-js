@@ -13,6 +13,7 @@ if (typeof window === 'undefined') {
 
     Utils.Chromium = require('./chromium');
     Utils.Clipboard = require('./clipboard');
+    Utils.Timer = require('./timer');
     
     Utils.Array = require('./array');
     Utils.String = require('./string');
@@ -28,6 +29,7 @@ if (typeof window === 'undefined') {
 
     Utils.Chromium = window.ChromiumUtils;
     Utils.Clipboard = window.ClipboardUtils;
+    Utils.Timer = window.TimerUtils;
     
     Utils.Array = window.ArrayUtils;
     Utils.String = window.StringUtils;

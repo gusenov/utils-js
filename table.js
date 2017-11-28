@@ -15,7 +15,8 @@
         
         TableUtils.createTableInPlaceHolder = function (placeHolderId, width, border, borderColor, borderCollapse) {
             var table = document.createElement('table'),
-                tbody = document.createElement('tbody');
+                tbody = document.createElement('tbody'),
+                placeHolderNode = document.getElementById(placeHolderId);
             
             table.style.width = typeof width !== 'undefined' ? width : '100%';
             table.setAttribute('border', typeof border !== 'undefined' ? border : '1');
@@ -23,7 +24,11 @@
             table.style.borderCollapse = typeof borderCollapse !== 'undefined' ? borderCollapse : 'collapse';
             
             table.appendChild(tbody);
-            document.getElementById(placeHolderId).appendChild(table);
+            
+            while (placeHolderNode.firstChild) {
+                placeHolderNode.removeChild(placeHolderNode.firstChild);
+            }
+            placeHolderNode.appendChild(table);
             
             return table;
         };
@@ -48,7 +53,7 @@
             return tr;
         };
         
-        TableUtils.createCellWithContent = function (htmlContent, cssClass) {
+        TableUtils.createCellWithContent = function (htmlContent, cssClass, colSpan) {
             var td = document.createElement('td'),
                 div = document.createElement('div');
             
@@ -59,14 +64,18 @@
             if (typeof cssClass !== 'undefined') {
                 div.setAttribute('class', cssClass);
             }
+            
+            if (colSpan !== null) {
+                td.colSpan = colSpan;
+            }
 
             td.appendChild(div);
             
             return td;
         };
         
-        TableUtils.createCellWithContentInRow = function (row, htmlContent, cssClass) {
-            var td = TableUtils.createCellWithContent(htmlContent, cssClass);
+        TableUtils.createCellWithContentInRow = function (row, htmlContent, cssClass, colSpan) {
+            var td = TableUtils.createCellWithContent(htmlContent, cssClass, colSpan);
             row.appendChild(td);
             return td;
         };

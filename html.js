@@ -24,6 +24,21 @@
             return HTMLUtils.getHTMLforDOMElement(target);
         };
         
+        /**
+         * @see {@link https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript|Stack Overflow}
+         */
+        HTMLUtils.removeAllChildElementsOfDOMNode = function (domElementId) {
+            var myNode = document.getElementById(domElementId);
+            
+            // much slower:
+            //myNode.innerHTML = '';
+            
+            // much faster:
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.firstChild);
+            }
+        };
+        
         return HTMLUtils;
     }());
 
