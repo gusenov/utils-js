@@ -10,6 +10,13 @@
     var ArrayUtils = (function () {
         function ArrayUtils() { }
         
+        /**
+         * @see {@link https://stackoverflow.com/questions/7378228/check-if-an-element-is-present-in-an-array|Stack Overflow}
+         */
+        ArrayUtils.isInArray = function (value, array) {
+            return array.indexOf(value) > -1;
+        };
+        
         ArrayUtils.sortByKey = function (array, key, asc) {
             
             /**
