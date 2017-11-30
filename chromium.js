@@ -61,6 +61,25 @@
             });
         };
         
+        /**
+         * @see {@link https://stackoverflow.com/questions/16571393/the-best-way-to-check-if-tab-with-exact-id-exists-in-chrome|Stack Overflow}
+         */
+        ChromiumUtils.checkIfTabWithIDExists = function (tabId, onExists, onNotExists) {
+            function callback() {
+                if (chrome.runtime.lastError) {
+                    if (onNotExists) {
+                        onNotExists(chrome.runtime.lastError.message);
+                    }
+                } else {
+                    // Tab exists
+                    if (onExists) {
+                        onExists();
+                    }
+                }
+            }
+            chrome.tabs.get(tabId, callback);
+        };
+        
         return ChromiumUtils;
     }());
 
