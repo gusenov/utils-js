@@ -49,7 +49,7 @@
             });
         };
 
-        ChromiumUtils.createContextMenuItemThatOpensNewPage = function (id, title, contexts, isVisible, url) {
+        ChromiumUtils.createContextMenuItemThatOpensNewPage = function (id, title, contexts, isVisible, url, documentUrlPatterns) {
             chrome.contextMenus.create({
                 id: id,
                 title: title,
@@ -57,7 +57,8 @@
                 visible: isVisible,
                 onclick: function () {
                     chrome.tabs.create({ url: url });
-                }
+                },
+                documentUrlPatterns: documentUrlPatterns
             });
         };
         
