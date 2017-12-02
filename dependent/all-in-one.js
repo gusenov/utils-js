@@ -17,6 +17,7 @@ if (typeof window === 'undefined') {
     
     Utils.Array = require('./array');
     Utils.String = require('./string');
+    Utils.RegEx = require('./regex');
 
     Utils.HTML = require('./html');
     Utils.Image = require('./image');
@@ -33,6 +34,7 @@ if (typeof window === 'undefined') {
     
     Utils.Array = window.ArrayUtils;
     Utils.String = window.StringUtils;
+    Utils.RegEx = window.RegExUtils;
     
     Utils.HTML = window.HTMLUtils;
     Utils.Image = window.ImageUtils;
