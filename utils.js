@@ -599,7 +599,7 @@
     node
 */
 
-var Utils;
+var Utils = {};
 
 if (typeof window === 'undefined') {
 
