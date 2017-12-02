@@ -116,6 +116,10 @@
             });
         };
 
+        ChromiumUtils.openNewPage = function (url) {
+            chrome.tabs.create({ url: url });
+        };
+        
         ChromiumUtils.createContextMenuItemThatOpensNewPage = function (id, title, contexts, isVisible, url, documentUrlPatterns) {
             chrome.contextMenus.create({
                 id: id,
@@ -126,6 +130,15 @@
                     chrome.tabs.create({ url: url });
                 },
                 documentUrlPatterns: documentUrlPatterns
+            });
+        };
+        
+        /**
+         * @see {@link https://developer.chrome.com/extensions/messaging#simple|Simple one-time requests}
+         */
+        ChromiumUtils.handleMessage = function (handler) {
+            chrome.runtime.onMessage.addListener(function (request) {
+                handler(request);
             });
         };
         
